@@ -18,9 +18,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  // TODO
+  // add vertical and horizontal paddings
   return (
     <html lang="en">
-      <body className={`${funnelDisplay.variable} antialiased`}>
+      <body
+        className={`${funnelDisplay.variable} ${funnelDisplay.className} antialiased`}
+      >
         {children}
       </body>
     </html>

@@ -1,5 +1,9 @@
+import Header from "../Header"
+
 export default function AboutMe() {
   return (
-    <div>AboutMe</div>
+    <div>
+      <Header />
+    </div>
   )
 }
