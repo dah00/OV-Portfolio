@@ -12,9 +12,9 @@ function Header() {
   }
 
   return (
-    <div className="fixed inset-x-0 top-0 z-50 flex w-full px-4 flex-row items-center justify-between shadow-elevated">
+    <header className="fixed inset-x-0 top-0 z-50 flex w-full px-4 py-2 flex-row items-center justify-between shadow-elevated">
       {/* Logo */}
-      <div className="text-2xl md:text-4xl lg:text-8xl">
+      <div className="text-3xl md:text-4xl lg:text-8xl">
         <Link href="#about">OV.</Link>
       </div>
 
@@ -57,7 +57,7 @@ function Header() {
           </li>
         </ul>
       </div>
-    </div>
+    </header>
   )
 }
 

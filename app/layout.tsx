@@ -2,6 +2,7 @@ import type { Metadata } from "next"
 import { Funnel_Display } from "next/font/google"
 import Header from "@/components/Header"
 import "./globals.css"
+import Links from "@/components/Links"
 
 const funnelDisplay = Funnel_Display({
   variable: "--font-funnel-display",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <main className="w-full px-[var(--page-padding-x)] pt-[var(--header-offset)]">
           {children}
         </main>
+        <Links />
       </body>
     </html>
   )
