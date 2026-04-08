@@ -1,5 +1,6 @@
 import type { Metadata } from "next"
 import { Funnel_Display } from "next/font/google"
+import Header from "@/components/Header"
 import "./globals.css"
 
 const funnelDisplay = Funnel_Display({
@@ -18,14 +19,15 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
-  // TODO
-  // add vertical and horizontal paddings
   return (
     <html lang="en">
       <body
         className={`${funnelDisplay.variable} ${funnelDisplay.className} antialiased`}
       >
-        {children}
+        <Header />
+        <main className="w-full px-[var(--page-padding-x)] pt-[var(--header-offset)]">
+          {children}
+        </main>
       </body>
     </html>
   )

@@ -6,6 +6,12 @@
   --muted: #b2b2b2;
   --surface: #dedede;
   --accent: #64b5f6;
+  /* Global horizontal inset for page content — tweak once */
+  --page-padding-x: clamp(1rem, 4vw, 2.5rem);
+  /* Space for fixed header + hash-link scroll offset (match Header height ~) */
+  --header-offset: 3rem;
+  --shadow-elevated-value:
+    0 1px 2px rgb(0 0 0 / 0.06), 0 4px 12px rgb(0 0 0 / 0.08);
 }
 
 @theme inline {
@@ -15,6 +21,7 @@
   --color-surface: var(--surface);
   --color-accent: var(--accent);
   --font-sans: var(--font-funnel-display);
+  --shadow-elevated: var(--shadow-elevated-value);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -22,6 +29,10 @@
     --background: #0a0a0a;
     --foreground: #ededed;
   }
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {

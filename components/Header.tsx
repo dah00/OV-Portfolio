@@ -1,5 +1,6 @@
 "use client"
 
+import Link from "next/link"
 import styles from "./Header.module.css"
 import { useState } from "react"
 
@@ -11,9 +12,11 @@ function Header() {
   }
 
   return (
-    <div className="flex flex-row justify-between items-center bg-accent">
+    <div className="fixed inset-x-0 top-0 z-50 flex w-full px-4 flex-row items-center justify-between shadow-elevated">
       {/* Logo */}
-      <div className="text-2xl md:text-4xl lg:text-8xl">OV.</div>
+      <div className="text-2xl md:text-4xl lg:text-8xl">
+        <Link href="#about">OV.</Link>
+      </div>
 
       {/* sm: mobile (toggle) + tablet (inline links). lg+: use fixed left nav below Logo. */}
       <div className="relative lg:hidden">
@@ -40,10 +43,18 @@ function Header() {
               : "max-md:hidden md:flex md:flex-row md:items-center md:justify-around md:gap-6"
           }
         >
-          <li>About Me</li>
-          <li>Experience</li>
-          <li>Projects</li>
-          <li>Contact Me</li>
+          <li>
+            <Link href="#about">About Me</Link>
+          </li>
+          <li>
+            <Link href="#experience">Experience</Link>
+          </li>
+          <li>
+            <Link href="#projects">Projects</Link>
+          </li>
+          <li>
+            <Link href="#contact">Contact Me</Link>
+          </li>
         </ul>
       </div>
     </div>

@@ -1,6 +1,8 @@
 function Experience() {
   return (
-    <div>Experience</div>
+    <section id="experience" className="scroll-mt-[var(--header-offset)]">
+      Experience
+    </section>
   )
 }
 
