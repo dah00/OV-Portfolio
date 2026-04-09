@@ -28,7 +28,7 @@ export default function Links() {
             >
               <Image
                 src={linkedinIcon}
-                alt=""
+                alt="LinkedIn icon"
                 width={iconSize}
                 height={iconSize}
                 className={iconClassName}
@@ -46,7 +46,7 @@ export default function Links() {
             >
               <Image
                 src={githubIcon}
-                alt=""
+                alt="GitHub icon"
                 width={iconSize}
                 height={iconSize}
                 className={iconClassName}
@@ -55,20 +55,23 @@ export default function Links() {
             </a>
           </li>
           <li>
-            {/* Replace with <a href="/resume.pdf" ...> when the file or URL is ready */}
-            <span
-              className="inline-flex cursor-not-allowed rounded-md p-1 opacity-50"
-              aria-label="Resume — coming soon"
+            <a
+              href="/resume.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={linkClassName}
+              // className="inline-flex cursor-not-allowed rounded-md p-1 opacity-50"
+              aria-label="Resume (opens in new tab)"
             >
               <Image
                 src={resumeIcon}
-                alt=""
+                alt="Resume icon"
                 width={iconSize}
                 height={iconSize}
                 className={iconClassName}
                 aria-hidden
               />
-            </span>
+            </a>
           </li>
         </ul>
       </nav>
