@@ -1,4 +1,5 @@
 import JobCard, { type JobCardProps } from "../experience/JobCard"
+import SectionTitle from "../shared/SectionTitle"
 
 const experiences: JobCardProps[] = [
   {
@@ -47,14 +48,14 @@ function Experience() {
       id="experience"
       className="flex flex-col items-start gap-8 bg-beige py-8 scroll-mt-[var(--header-offset)]"
     >
-      <div className="flex flex-col gap-1">
-        <h2 className="text-2xl">Experience</h2>
-        <span className="h-1 w-20 rounded-2xl bg-foreground" />
-      </div>
+      <SectionTitle title="Experience" />
 
       <div className="flex w-full flex-col gap-10">
         {experiences.map((job, index) => (
-          <JobCard key={`${job.company_name}-${job.timeline}-${index}`} {...job} />
+          <JobCard
+            key={`${job.company_name}-${job.timeline}-${index}`}
+            {...job}
+          />
         ))}
       </div>
     </section>
