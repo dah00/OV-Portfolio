@@ -12,7 +12,7 @@ function Header() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-80 flex w-full px-4 py-2 bg-background flex-row items-center justify-between shadow-elevated">
+    <header className="fixed inset-x-0 top-0 z-50 flex w-full flex-row items-center justify-between bg-background px-4 py-2 shadow-elevated">
       {/* Logo */}
       <div className="text-3xl md:text-4xl lg:text-4xl">
         <Link href="#about">OV.</Link>
