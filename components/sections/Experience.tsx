@@ -46,7 +46,7 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="scroll-mt-[var(--header-offset)] flex flex-col items-start gap-8 bg-surface/20 py-8"
+      className="scroll-mt-[var(--header-offset)] flex flex-col items-start gap-8 py-8"
     >
       <SectionTitle title="Experience" />
 
