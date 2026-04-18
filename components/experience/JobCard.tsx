@@ -21,8 +21,10 @@ export default function JobCard({
   return (
     <article className="flex flex-col items-start">
       <div>
+        {/* Employment period (e.g. "2022 — Present") */}
         <p className="text-sm text-muted sm:text-base">{timeline}</p>
         <div>
+          {/* Company name links to site/careers page; icon hints it opens externally */}
           <a
             href={link}
             target="_blank"
@@ -44,6 +46,7 @@ export default function JobCard({
           </a>
 
           <p className="mb-4 text-base font-medium">{role}</p>
+          {/* Bullet list of responsibilities or achievements */}
           <ul className="list-inside list-disc pl-4">
             {description.map((item) => (
               <li key={item} className="text-muted">
@@ -51,6 +54,7 @@ export default function JobCard({
               </li>
             ))}
           </ul>
+          {/* Skills / tools used in this role */}
           <ul className="mt-2 flex flex-wrap gap-2 pl-4">
             {stacks.map((stack) => (
               <li
