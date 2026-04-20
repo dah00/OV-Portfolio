@@ -26,6 +26,13 @@
   --shadow-elevated: var(--shadow-elevated-value);
 }
 
+/* Reusable: Tailwind must see utilities via @apply, not CSS variables. */
+@layer components {
+  .stack-styling {
+    @apply rounded-md bg-accent/15 px-2 py-0.5 text-sm text-foreground ring-1 ring-accent/50;
+  }
+}
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
@@ -42,3 +49,4 @@ body {
   color: var(--foreground);
   font-family: var(--font-funnel-display), system-ui, sans-serif;
 }
+

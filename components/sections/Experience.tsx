@@ -5,7 +5,7 @@ const experiences: JobCardProps[] = [
   {
     timeline: "Jan 2024 - Present",
     role: "Software Engineer",
-    company_name: "Tenafli",
+    companyName: "Tenafli",
     description: [
       "Developed and maintained two React Native apps Tenafli and Tenafli Pro that connect homeowners/renters with home service providers, initially focused on delivering new frontend features and UI enhancements.",
       "Implemented major product capabilities such as profile management, SSO authentication, gift card integration, image uploads, deep linking, push notifications, and job completion tracking — improving user engagement and operational workflows.",
@@ -24,7 +24,7 @@ const experiences: JobCardProps[] = [
   {
     timeline: "Oct 2023 - Dec 2023",
     role: "Software Engineer",
-    company_name: "One Community",
+    companyName: "One Community",
     description: [
       "Developed and maintained two React Native apps Tenafli and Tenafli Pro that connect homeowners/renters with home service providers, initially focused on delivering new frontend features and UI enhancements.",
       "Implemented major product capabilities such as profile management, SSO authentication, gift card integration, image uploads, deep linking, push notifications, and job completion tracking — improving user engagement and operational workflows.",
@@ -53,7 +53,7 @@ function Experience() {
       <div className="flex w-full flex-col gap-10">
         {experiences.map((job, index) => (
           <JobCard
-            key={`${job.company_name}-${job.timeline}-${index}`}
+            key={`${job.companyName}-${job.timeline}-${index}`}
             {...job}
           />
         ))}
