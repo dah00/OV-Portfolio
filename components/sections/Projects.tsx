@@ -11,13 +11,24 @@ const projects: ProjectCardProps[] = [
     stacks: ["React Native", "Typescript", "Python"],
     github_link: "https://github.com/dah00/OnePercent",
   },
+  {
+    title: "Portfolio",
+    description: "My personal portfolio.",
+    image: mobileAppImage,
+    stacks: ["Next.js", "Typescript", "Tailwind"],
+    github_link: "https://github.com/dah00/OnePercent",
+    project_link: "https://obeda.dev",
+  },
 ]
 
 function Projects() {
   return (
-    <section id="projects" className="py-8 scroll-mt-[var(--header-offset)]">
+    <section
+      id="projects"
+      className="py-8 flex flex-col items-start gap-8 scroll-mt-[var(--header-offset)]"
+    >
       <SectionTitle title="Projects" />
-      <div>
+      <div className="flex flex-col gap-4">
         {projects.map((project) => (
           <ProjectCard
             key={project.title}
@@ -26,6 +37,7 @@ function Projects() {
             image={project.image}
             stacks={project.stacks}
             github_link={project.github_link}
+            project_link={project.project_link}
           />
         ))}
       </div>
