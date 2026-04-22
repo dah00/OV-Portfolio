@@ -1,20 +1,40 @@
-"use client"
+import { Resend } from "resend";
 
 export default function Messaging() {
-  const handleSubmit = () => {}
+  const resend = new Resend(process.env.RESEND_API_KEY);
+  async function serverFn(formData: FormData) {
+    "use server";
+
+    const name = String(formData.get("name") ?? "").trim();
+    const email = String(formData.get("email") ?? "").trim();
+    const message = String(formData.get("message") ?? "").trim();
+    const botField = String(formData.get("company") ?? "").trim()
+
+    if (botField) return
+    if (!name || !email || !message) {
+      return;
+    }
+
+    await resend.emails.send({
+      from: process.env.CONTACT_FROM_EMAIL!,
+      to: process.env.CONTACT_TO_EMAIL!,
+      subject: `Portfolio message from ${name}`,
+      replyTo: email,
+      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
+    });
+  }
 
   return (
     <form
-      method="post"
-      onSubmit={handleSubmit}
-      className="fex flex-col gap-8 px-4  border border-surface bg-surface/20 w-[80%]"
+      action={serverFn}
+      className="flex flex-col gap-8 px-4  border border-surface bg-surface/20 w-[80%]"
     >
       <div>
         <input
           id="Name"
           name="name"
           type="text"
-          autoCapitalize="true"
+          autoCapitalize="words"
           autoComplete="name"
           required
         />
@@ -23,16 +43,27 @@ export default function Messaging() {
         <input
           id="Email"
           name="email"
-          type="text"
-          autoCapitalize="false"
-          autoComplete="name"
+          type="email"
+          autoCapitalize="none"
+          autoComplete="email"
           required
         />
       </div>
+      <input
+        type="text"
+        name="componay"
+        tabIndex={-1}
+        autoComplete="off"
+        className="hidden"
+        aria-hidden="true"
+      />
+
       <div>
-        <textarea />
+        <textarea id="message" name="message" required />
       </div>
-      <button type="submit">Send Message</button>
+      <button type="submit" className="cursor-pointer">
+        Send Message
+      </button>
     </form>
-  )
+  );
 }
