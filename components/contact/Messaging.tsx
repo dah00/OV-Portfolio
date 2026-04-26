@@ -1,69 +1,92 @@
-import { Resend } from "resend";
+"use client"
+
+import { useActionState, useEffect, useRef } from "react"
+import { useFormStatus } from "react-dom"
+import { initialContactState, sendMessage } from "./actions"
+
+const inputFieldStyling =
+  "border-1 border-surface bg-surface/40 w-full px-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-accent/60 focus:border-accent"
+
+function SubmitButton() {
+  const { pending } = useFormStatus()
+
+  return (
+    <button type="submit" className="cursor-pointer text-sm" disabled={pending}>
+      {pending ? "Sending..." : "Send Message"}
+    </button>
+  )
+}
 
 export default function Messaging() {
-  const resend = new Resend(process.env.RESEND_API_KEY);
-  async function serverFn(formData: FormData) {
-    "use server";
+  const [state, formAction] = useActionState(sendMessage, initialContactState)
+  const formRef = useRef<HTMLFormElement>(null)
 
-    const name = String(formData.get("name") ?? "").trim();
-    const email = String(formData.get("email") ?? "").trim();
-    const message = String(formData.get("message") ?? "").trim();
-    const botField = String(formData.get("company") ?? "").trim()
-
-    if (botField) return
-    if (!name || !email || !message) {
-      return;
+  useEffect(() => {
+    if (state.success) {
+      formRef.current?.reset()
     }
-
-    await resend.emails.send({
-      from: process.env.CONTACT_FROM_EMAIL!,
-      to: process.env.CONTACT_TO_EMAIL!,
-      subject: `Portfolio message from ${name}`,
-      replyTo: email,
-      text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
-    });
-  }
+  }, [state.success])
 
   return (
     <form
-      action={serverFn}
-      className="flex flex-col gap-8 px-4  border border-surface bg-surface/20 w-[80%]"
+      ref={formRef}
+      action={formAction}
+      className="flex flex-col gap-4 px-4 py-6 border border-surface bg-surface/20 rounded-xl w-full"
     >
-      <div>
-        <input
-          id="Name"
-          name="name"
-          type="text"
-          autoCapitalize="words"
-          autoComplete="name"
-          required
-        />
-      </div>
-      <div>
-        <input
-          id="Email"
-          name="email"
-          type="email"
-          autoCapitalize="none"
-          autoComplete="email"
-          required
-        />
-      </div>
+      <input
+        id="name"
+        name="name"
+        type="text"
+        placeholder="Name"
+        autoCapitalize="words"
+        autoComplete="name"
+        required
+        className={inputFieldStyling}
+        aria-label="Visitor's name"
+      />
+
+      <input
+        id="email"
+        name="email"
+        type="email"
+        placeholder="Email"
+        autoCapitalize="none"
+        autoComplete="email"
+        required
+        className={inputFieldStyling}
+        aria-label="Visitor's email address"
+      />
+
       <input
         type="text"
-        name="componay"
+        name="company"
         tabIndex={-1}
         autoComplete="off"
         className="hidden"
         aria-hidden="true"
       />
 
-      <div>
-        <textarea id="message" name="message" required />
+      <textarea
+        id="message"
+        name="message"
+        placeholder="Say what's up"
+        rows={8}
+        required
+        className={inputFieldStyling}
+      />
+
+      <div className="self-center rounded-xl bg-accent px-4 py-2">
+        <SubmitButton />
       </div>
-      <button type="submit" className="cursor-pointer">
-        Send Message
-      </button>
+      {state.message ? (
+        <p
+          className={state.success ? "text-sm text-accent" : "text-sm text-red-400"}
+          role="status"
+          aria-live="polite"
+        >
+          {state.message}
+        </p>
+      ) : null}
     </form>
-  );
+  )
 }

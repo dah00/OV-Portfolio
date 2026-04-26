@@ -3,7 +3,10 @@ import SectionTitle from "../shared/SectionTitle"
 
 function ContactMe() {
   return (
-    <section id="contact" className="scroll-mt-[var(--header-offset)] ">
+    <section
+      id="contact"
+      className="scroll-mt-[var(--header-offset)] flex flex-col gap-8 mb-4"
+    >
       <SectionTitle title="Contact Me" />
       <Messaging />
     </section>
