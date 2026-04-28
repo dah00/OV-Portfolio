@@ -1,8 +1,9 @@
 import type { Metadata } from "next"
 import { Funnel_Display } from "next/font/google"
-import Header from "@/components/Header"
 import "./globals.css"
 import Links from "@/components/Links"
+import HeaderMobile from "@/components/HeaderMobile"
+import HeaderDesktop from "@/components/HeaderDesktop"
 
 const funnelDisplay = Funnel_Display({
   variable: "--font-funnel-display",
@@ -23,10 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${funnelDisplay.variable} ${funnelDisplay.className} antialiased`}
+        className={`${funnelDisplay.variable} ${funnelDisplay.className} antialiased px-4 md:px-8 lg:px-20`}
       >
-        <Header />
-        <main className="w-full px-[var(--page-padding-x)] pt-[var(--header-offset)]">
+        <HeaderMobile />
+        <HeaderDesktop />
+        <main className="w-full  pt-[var(--headerMobile-offset)] lg:pl-[var(--headerDesktop-offset)]">
           {children}
         </main>
         <Links />

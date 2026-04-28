@@ -6,12 +6,14 @@
   --muted: #b2b2b2;
   --surface: #dedede;
   --accent: #64b5f6;
+  /* --body-padding-x: clamp() */
   --page-padding-x: clamp(
     1rem,
     4vw,
     2.5rem
   ); /* Global horizontal inset for page content */
-  --header-offset: 3.5rem; /* Space for fixed header + hash-link scroll offset  */
+  --headerMobile-offset: 3.5rem; /* Space for mobile fixed header + hash-link scroll offset  */
+  --headerDesktop-offset: 30rem; /* Space for desktop fixed header + hash-link scroll offset  */
   --shadow-elevated-value:
     0 1px 2px rgb(0 0 0 / 0.06), 0 4px 12px rgb(0 0 0 / 0.08);
 }
@@ -49,4 +51,3 @@ body {
   color: var(--foreground);
   font-family: var(--font-funnel-display), system-ui, sans-serif;
 }
-

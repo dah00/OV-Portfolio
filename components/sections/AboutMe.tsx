@@ -4,7 +4,7 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="scroll-mt-[var(--header-offset)] min-h-[30rem] flex justify-center items-center"
+      className="scroll-mt-[var(--headerMobile-offset)] min-h-[30rem] flex justify-center items-center"
     >
       <p className="px-2 text-2xl md:text-4xl lg:text-6xl">
         Hi, I&apos;m Obeda, a software engineer. I turn ideas into apps that

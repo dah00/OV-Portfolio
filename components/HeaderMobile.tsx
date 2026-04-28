@@ -4,7 +4,7 @@ import Link from "next/link"
 import styles from "./Header.module.css"
 import { useState } from "react"
 
-function Header() {
+function HeaderMobile() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
   const handleOpenMenu = () => {
@@ -12,14 +12,14 @@ function Header() {
   }
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 flex w-full flex-row items-center justify-between bg-background px-4 py-2 shadow-elevated">
+    // sm: mobile (toggle) + tablet (inline links). lg+: use fixed left nav below Logo.
+    <header className="lg:hidden fixed inset-x-0 top-0 z-50 flex w-full flex-row items-center justify-between bg-background px-4 py-2 shadow-elevated">
       {/* Logo */}
       <div className="text-3xl md:text-4xl lg:text-4xl">
         <Link href="#about">OV.</Link>
       </div>
 
-      {/* sm: mobile (toggle) + tablet (inline links). lg+: use fixed left nav below Logo. */}
-      <div className="relative lg:hidden">
+      <div className="relative">
         {/* Hamburger only on sm and hide on md-lg+. */}
         <button
           onClick={handleOpenMenu}
@@ -61,4 +61,4 @@ function Header() {
   )
 }
 
-export default Header
+export default HeaderMobile

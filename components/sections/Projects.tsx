@@ -25,7 +25,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="py-8 flex flex-col items-start gap-8 scroll-mt-[var(--header-offset)]"
+      className="py-8 flex flex-col items-start gap-8 scroll-mt-[var(--headerMobile-offset)]"
     >
       <SectionTitle title="Projects" />
       <div className="flex flex-col gap-4">

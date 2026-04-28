@@ -50,7 +50,7 @@ export default function ProjectCard({
             className="h-4 w-4 object-contain invert"
             alt="GitHub icon"
           />
-          <p className="text-background">GitHub</p>
+          <span className="text-background">GitHub</span>
         </a>
         {project_link && (
           <a
