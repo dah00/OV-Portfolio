@@ -13,7 +13,8 @@
     2.5rem
   ); /* Global horizontal inset for page content */
   --headerMobile-offset: 3.5rem; /* Space for mobile fixed header + hash-link scroll offset  */
-  --headerDesktop-offset: 30rem; /* Space for desktop fixed header + hash-link scroll offset  */
+  --headerDesktop-offset: 15rem; /* Space for desktop fixed header + hash-link scroll offset  */
+  --mainDesktop-horizontal-offset: 20rem;
   --shadow-elevated-value:
     0 1px 2px rgb(0 0 0 / 0.06), 0 4px 12px rgb(0 0 0 / 0.08);
 }

@@ -22,10 +22,6 @@ function HeaderDesktop() {
 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect()
-        console.log("-------------------------------")
-        console.log("section: ", section)
-        console.log("rect.top: ", rect.top)
-        console.log("rect.height: ", rect.height)
         const sectionCenter = rect.top + rect.height / 2
         const distance = Math.abs(sectionCenter - viewportCenter)
 
@@ -52,7 +48,7 @@ function HeaderDesktop() {
 
   return (
     <nav className="hidden lg:block">
-      <div className="flex flex-col fixed bg-surface/30 backdrop-blur-2xl border border-surface/60 rounded-xl  h-screen lg:w-[15rem] left-6 pt-2">
+      <div className="flex flex-col fixed rounded-xl  h-screen lg:w-[15rem] left-6 pt-2">
         {/* Logo */}
         <div className="text-3xl md:text-4xl lg:text-4xl">
           <Link href="#about">OV.</Link>

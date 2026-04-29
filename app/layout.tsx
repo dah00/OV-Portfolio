@@ -24,11 +24,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${funnelDisplay.variable} ${funnelDisplay.className} antialiased px-4 md:px-8 lg:px-20`}
+        className={`${funnelDisplay.variable} ${funnelDisplay.className} antialiased px-4`}
       >
         <HeaderMobile />
         <HeaderDesktop />
-        <main className="w-full  pt-[var(--headerMobile-offset)] lg:pl-[var(--headerDesktop-offset)]">
+        <main className="w-full  pt-[var(--headerMobile-offset)] lg:pl-[var(--headerDesktop-offset)] lg:max-w-[70rem] lg:mx-auto">
           {children}
         </main>
         <Links />
