@@ -19,7 +19,7 @@ const experiences: JobCardProps[] = [
       "AWS (ECS, EC2, S3, DynamoDB, Cognito)",
       "Python",
     ],
-    link: "https://apps.apple.com/us/app/tenafli-home-cleaners-more/id6475213449",
+    link: "https://tenafli.com/",
   },
   {
     timeline: "Oct 2023 - Dec 2023",
@@ -38,7 +38,7 @@ const experiences: JobCardProps[] = [
       "AWS (ECS, EC2, S3, DynamoDB, Cognito)",
       "Python",
     ],
-    link: "https://apps.apple.com/us/app/tenafli-home-cleaners-more/id6475213449",
+    link: "https://onecommunityglobal.org/",
   },
 ]
 
@@ -46,7 +46,7 @@ function Experience() {
   return (
     <section
       id="experience"
-      className="scroll-mt-[var(--headerMobile-offset)] flex flex-col items-start gap-8 py-8"
+      className="scroll-mt-[var(--headerMobile-offset)] lg:scroll-mt-0 flex flex-col items-start gap-8 py-8"
     >
       <SectionTitle title="Experience" />
 

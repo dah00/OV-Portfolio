@@ -30,10 +30,10 @@ export default function JobCard({
           target="_blank"
           rel="noopener noreferrer"
           aria-label={`${companyName} — opens in a new tab`}
-          className="inline-block"
+          className="inline-block rounded-sm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <span className="flex flex-row items-center gap-2">
-            <h3 className="text-xl font-semibold">{companyName}</h3>
+            <h3 className="text-2xl font-semibold">{companyName}</h3>
             <Image
               src={linkIcon}
               alt=""
@@ -47,9 +47,12 @@ export default function JobCard({
 
         <p className="mb-4 text-base font-medium">{role}</p>
         {/* Bullet list of responsibilities or achievements */}
-        <ul className="list-inside list-disc pl-4">
+        <ul className="list-inside list-disc space-y-1 pl-4">
           {description.map((item, index) => (
-            <li key={`description-${index}`} className="text-muted">
+            <li
+              key={`description-${index}`}
+              className="text-muted text-base md:text-lg"
+            >
               {item}
             </li>
           ))}

@@ -63,7 +63,7 @@ function HeaderDesktop() {
                 aria-current={activeSection === "about" ? "page" : undefined}
                 className={
                   activeSection === "about"
-                    ? "font-semibold text-accent/60 pl-2"
+                    ? "font-semibold text-accent pl-2"
                     : "text-foreground"
                 }
               >
@@ -78,7 +78,7 @@ function HeaderDesktop() {
                 }
                 className={
                   activeSection === "experience"
-                    ? "font-semibold text-accent/60 pl-2"
+                    ? "font-semibold text-accent pl-2"
                     : "text-foreground"
                 }
               >
@@ -91,7 +91,7 @@ function HeaderDesktop() {
                 aria-current={activeSection === "projects" ? "page" : undefined}
                 className={
                   activeSection === "projects"
-                    ? "font-semibold text-accent/60 pl-2"
+                    ? "font-semibold text-accent pl-2"
                     : "text-foreground"
                 }
               >
@@ -104,7 +104,7 @@ function HeaderDesktop() {
                 aria-current={activeSection === "contact" ? "page" : undefined}
                 className={
                   activeSection === "contact"
-                    ? "font-semibold text-accent/60 pl-2"
+                    ? "font-semibold text-accent pl-2"
                     : "text-foreground"
                 }
               >
