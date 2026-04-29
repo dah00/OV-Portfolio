@@ -22,6 +22,10 @@ function HeaderDesktop() {
 
       sections.forEach((section) => {
         const rect = section.getBoundingClientRect()
+        console.log("-------------------------------")
+        console.log("section: ", section)
+        console.log("rect.top: ", rect.top)
+        console.log("rect.height: ", rect.height)
         const sectionCenter = rect.top + rect.height / 2
         const distance = Math.abs(sectionCenter - viewportCenter)
 
