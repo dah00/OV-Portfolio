@@ -4,7 +4,7 @@ export default function AboutMe() {
   return (
     <section
       id="about"
-      className="scroll-mt-[var(--headerMobile-offset)] flex w-full items-center justify-center min-h-[53rem] "
+      className="scroll-mt-[var(--headerMobile-offset)] flex w-full items-center justify-center min-h-[35rem] lg:min-h-[53rem] "
     >
       <div className="w-full max-w-3xl">
         <p className="text-2xl leading-tight md:text-4xl lg:text-5xl">
