@@ -22,9 +22,12 @@ export default function ProjectCard({
   github_link,
 }: ProjectCardProps) {
   return (
-    <article className="flex flex-col gap-6 p-6 bg-surface/20 border border-surface rounded-xl">
+    <article
+      className="flex flex-col gap-2 p-6 bg-surface/20 rounded-xl
+    md:flex-1"
+    >
       {/* Image */}
-      <div className="relative min-h-40 w-full">
+      <div className="relative min-h-80 w-full">
         <Image
           src={image}
           alt={title}
@@ -34,6 +37,10 @@ export default function ProjectCard({
         />
       </div>
       <h3 className="text-lg font-semibold">{title}</h3>
+
+      {/* description */}
+      <p>{description}</p>
+
       {/* Links */}
       <div className="flex items-center gap-4">
         <a
@@ -70,11 +77,6 @@ export default function ProjectCard({
             <p>Demo</p>
           </a>
         )}
-      </div>
-
-      {/* description */}
-      <div className="flex flex-col gap-2">
-        <p>{description}</p>
       </div>
 
       {/* stacks */}

@@ -4,20 +4,37 @@ import mobileAppImage from "@/assets/images/mobile_app_screenshot.png"
 
 const projects: ProjectCardProps[] = [
   {
-    title: "DearFutureme",
+    title: "OV Portfolio",
     description:
-      'Tracks your daily self-improvement in a simple, low-pressure way. Encourages you to get "1% better every day" through small, consistent actions, and lets you log short daily reflections or progress entries like a micro-journal. Builds a sense of progress over time by accumulating these small entries, uses reminders to help you stay consistent with the habit, and focuses on simplicity and minimalism with no overwhelming features. Helps users develop meaningful habits instead of chasing big, unsustainable goals.',
+      "Designed and built this responsive portfolio, focused on clean information architecture and modern UI patterns.",
     image: mobileAppImage,
-    stacks: ["React Native", "Typescript", "Python"],
+    stacks: ["Next.js", "Typescript", "Tailwind"],
+    github_link: "https://github.com/dah00/OV-Portfolio",
+    project_link: "https://obeda.dev",
+  },
+  {
+    title: "OnePercent",
+    description:
+      "A minimalist habit-tracking app inspired by “1% better every day.” It helps users log short daily reflections, stay consistent, and visualize progress over time with simple charts and reminders.",
+    image: mobileAppImage,
+    stacks: ["React Native", "Typescript", "Nativewind", "Python"],
     github_link: "https://github.com/dah00/OnePercent",
   },
   {
-    title: "Portfolio",
-    description: "My personal portfolio.",
+    title: "Thrive",
+    description:
+      "A personal growth app that tracks workouts, journaling, reading notes, and side projects in one place with a simple, motivating experience.",
     image: mobileAppImage,
-    stacks: ["Next.js", "Typescript", "Tailwind"],
-    github_link: "https://github.com/dah00/OnePercent",
-    project_link: "https://obeda.dev",
+    stacks: ["React Native", "Typescript", "Nativewind"],
+    github_link: "https://github.com/dah00/Thrive",
+  },
+  {
+    title: "Office Supply Depot",
+    description:
+      "Our senior-year final project, where I led the frontend development of a full-stack web app.",
+    image: mobileAppImage,
+    stacks: ["JavaScript", "HTML", "CSS", "Python", "SQL"],
+    github_link: "https://github.com/michmoosch/CS-160-Term-Project",
   },
 ]
 
@@ -25,10 +42,10 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="py-8 flex flex-col items-start gap-8 scroll-mt-[var(--headerMobile-offset)]"
+      className="flex flex-col items-start gap-8 py-8  scroll-mt-[var(--headerMobile-offset)]"
     >
       <SectionTitle title="Projects" />
-      <div className="flex flex-col gap-4">
+      <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">
         {projects.map((project) => (
           <ProjectCard
             key={project.title}
