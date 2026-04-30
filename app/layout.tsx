@@ -28,7 +28,7 @@ export default function RootLayout({
       >
         <HeaderMobile />
         <HeaderDesktop />
-        <main className="w-full  pt-[var(--headerMobile-offset)] lg:pl-[var(--headerDesktop-offset)] lg:max-w-[70rem] lg:mx-auto">
+        <main className="w-full  pt-[var(--headerMobile-offset)] lg:pt-0 lg:pl-[var(--headerDesktop-offset)] lg:max-w-[70rem] lg:mx-auto">
           {children}
         </main>
         <Links />
