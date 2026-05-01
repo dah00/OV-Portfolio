@@ -2,6 +2,7 @@ import ProjectCard, { ProjectCardProps } from "../projects/ProjectCard"
 import SectionTitle from "../shared/SectionTitle"
 import mobileAppImage from "@/assets/images/mobile_app_screenshot.png"
 import portfolioImage from "@/assets/images/OV_Portfolio_picture.png"
+import onePercentImage from "@/assets/images/OnePercent_image.png"
 
 const projects: ProjectCardProps[] = [
   {
@@ -17,7 +18,7 @@ const projects: ProjectCardProps[] = [
     title: "OnePercent",
     description:
       "A minimalist habit-tracking app inspired by “1% better every day.” It helps users log short daily reflections, stay consistent, and visualize progress over time with simple charts and reminders.",
-    image: mobileAppImage,
+    image: onePercentImage,
     stacks: ["React Native", "Typescript", "Nativewind", "Python"],
     github_link: "https://github.com/dah00/OnePercent",
   },
