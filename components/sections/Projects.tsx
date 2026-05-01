@@ -1,13 +1,14 @@
 import ProjectCard, { ProjectCardProps } from "../projects/ProjectCard"
 import SectionTitle from "../shared/SectionTitle"
 import mobileAppImage from "@/assets/images/mobile_app_screenshot.png"
+import portfolioImage from "@/assets/images/OV_Portfolio_picture.png"
 
 const projects: ProjectCardProps[] = [
   {
     title: "OV Portfolio",
     description:
       "Designed and built this responsive portfolio, focused on clean information architecture and modern UI patterns.",
-    image: mobileAppImage,
+    image: portfolioImage,
     stacks: ["Next.js", "Typescript", "Tailwind"],
     github_link: "https://github.com/dah00/OV-Portfolio",
     project_link: "https://obeda.dev",

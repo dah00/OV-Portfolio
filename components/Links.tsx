@@ -5,20 +5,20 @@ import resumeIcon from "@/assets/icons/resume.png"
 
 const iconSize = 20
 
-const iconClassName = "h-5 w-5 object-contain"
+const iconClassName = "block h-5 w-5 shrink-0 object-contain"
 
 const linkClassName =
-  "inline-flex rounded-md p-1 transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+  "inline-flex items-center justify-center rounded-md transition-opacity hover:opacity-80 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
 
 export default function Links() {
   return (
     <aside
-      className="fixed bottom-5 left-5 z-40 flex items-center gap-4 rounded-4xl bg-surface p-2 shadow-elevated"
+      className="fixed bottom-5 left-5 z-40 flex w-28 items-center justify-center rounded-4xl bg-surface/60 px-2 py-2 shadow-elevated backdrop-blur-sm"
       aria-label="Profiles and resume"
     >
-      <nav aria-label="Social and resume links">
-        <ul className="flex items-center gap-2">
-          <li>
+      <nav className="w-full" aria-label="Social and resume links">
+        <ul className="m-0 grid w-full grid-cols-3 list-none place-items-center p-0 leading-none ">
+          <li className="flex w-full justify-center">
             <a
               href="https://www.linkedin.com/in/obeda-velonjatovo/"
               target="_blank"
@@ -36,7 +36,7 @@ export default function Links() {
               />
             </a>
           </li>
-          <li>
+          <li className="flex w-full justify-center">
             <a
               href="https://github.com/dah00"
               target="_blank"
@@ -54,13 +54,12 @@ export default function Links() {
               />
             </a>
           </li>
-          <li>
+          <li className="flex w-full justify-center">
             <a
               href="/resume.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className={linkClassName}
-              // className="inline-flex cursor-not-allowed rounded-md p-1 opacity-50"
               aria-label="Resume (opens in new tab)"
             >
               <Image
