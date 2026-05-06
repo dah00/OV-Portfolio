@@ -2,7 +2,7 @@ import Image, { type StaticImageData } from "next/image"
 import githubIcon from "@/assets/icons/github.png"
 import linkIcon from "@/assets/icons/link.png"
 
-const icon_size = 14
+const iconSize = 14
 
 export interface ProjectCardProps {
   title: string
@@ -47,13 +47,13 @@ export default function ProjectCard({
           href={github_link}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 rounded-xl border border-surface bg-foreground px-2 py-2 text-sm"
-          aria-label="Project's GitHub repo"
+          className="inline-flex items-center gap-1 rounded-xl border border-surface bg-foreground px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          aria-label={`GitHub repository for ${title}`}
         >
           <Image
             src={githubIcon}
-            width={icon_size}
-            height={icon_size}
+            width={iconSize}
+            height={iconSize}
             className="h-4 w-4 object-contain invert"
             alt="GitHub icon"
           />
@@ -64,29 +64,29 @@ export default function ProjectCard({
             href={project_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 rounded-xl border border-surface bg-surface px-2 py-2 text-sm"
-            aria-label="Project demo link"
+            className="inline-flex items-center gap-1 rounded-xl border border-surface bg-surface px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            aria-label={`Live demo for ${title}`}
           >
             <Image
               src={linkIcon}
-              width={icon_size}
-              height={icon_size}
+              width={iconSize}
+              height={iconSize}
               className="h-4 w-4 object-contain"
               alt="Project Link icon"
             />
-            <p>Demo</p>
+            <span>Demo</span>
           </a>
         )}
       </div>
 
       {/* stacks */}
-      <div className="flex flex-wrap gap-2">
+      <ul className="flex flex-wrap gap-2">
         {stacks.map((stack) => (
-          <p key={stack} className="stack-styling">
+          <li key={stack} className="stack-styling">
             {stack}
-          </p>
+          </li>
         ))}
-      </div>
+      </ul>
     </article>
   )
 }
