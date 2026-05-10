@@ -2,7 +2,7 @@ import Image, { type StaticImageData } from "next/image"
 import githubIcon from "@/assets/icons/github.png"
 import linkIcon from "@/assets/icons/link.png"
 
-const icon_size = 14
+const iconSize = 14
 
 export interface ProjectCardProps {
   title: string
@@ -22,74 +22,69 @@ export default function ProjectCard({
   github_link,
 }: ProjectCardProps) {
   return (
-    <article
-      className="flex flex-col gap-2 pb-6 bg-surface/20 rounded-xl
-    md:flex-1"
-    >
+    <article className="flex flex-col gap-2 rounded-xl bg-surface/20 pb-6 md:flex-1">
       {/* Image */}
-      <div className="relative min-h-60 rounded-xl w-full">
+      <div className="relative min-h-60 w-full rounded-xl">
         <Image
           src={image}
           alt={title}
-          className="object-contain rounded-lg"
+          className="rounded-lg object-contain"
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
 
-      <div className="px-4 flex flex-col gap-2">
-        {/* Project Name */}
+      <div className="flex flex-col gap-2 px-4">
         <h3 className="text-lg font-semibold">{title}</h3>
 
-        {/* description */}
-        <p>{description}</p>
-
-        {/* Links */}
-        <div className="flex items-center gap-4">
+        <div className="flex flex-wrap items-center gap-4">
           <a
             href={github_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 rounded-xl border border-surface bg-foreground px-2 py-2 text-sm"
-            aria-label="Project's GitHub repo"
+            className="inline-flex items-center gap-1 rounded-xl border border-surface bg-foreground px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+            aria-label={`GitHub repository for ${title}`}
           >
             <Image
               src={githubIcon}
-              width={icon_size}
-              height={icon_size}
+              width={iconSize}
+              height={iconSize}
               className="h-4 w-4 object-contain invert"
-              alt="GitHub icon"
+              alt=""
+              aria-hidden
             />
             <span className="text-background">GitHub</span>
           </a>
-          {project_link && (
+          {project_link ? (
             <a
               href={project_link}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1 rounded-xl border border-surface bg-surface px-2 py-2 text-sm"
-              aria-label="Project demo link"
+              className="inline-flex items-center gap-1 rounded-xl border border-surface bg-surface px-2 py-2 text-sm focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+              aria-label={`Live demo for ${title}`}
             >
               <Image
                 src={linkIcon}
-                width={icon_size}
-                height={icon_size}
+                width={iconSize}
+                height={iconSize}
                 className="h-4 w-4 object-contain"
-                alt="Project Link icon"
+                alt=""
+                aria-hidden
               />
-              <p>Demo</p>
+              <span>Demo</span>
             </a>
-          )}
+          ) : null}
         </div>
 
-        {/* stacks */}
-        <div className="flex flex-wrap gap-2">
-          {stacks.map((stack) => (
-            <p key={stack} className="stack-styling">
+        <p>{description}</p>
+
+        <ul className="flex flex-wrap gap-2">
+          {stacks.map((stack, index) => (
+            <li key={`${title}-${stack}-${index}`} className="stack-styling">
               {stack}
-            </p>
+            </li>
           ))}
-        </div>
+        </ul>
       </div>
     </article>
   )
