@@ -2,35 +2,15 @@
 
 import Link from "next/link"
 import { useEffect, useState } from "react"
-
-const SECTION_IDS = ["about", "experience", "projects", "contact"] as const
+import { getClosestSectionId } from "@/lib/sectionScroll"
 
 function HeaderDesktop() {
   const [activeSection, setActiveSection] = useState<string>("about")
 
   useEffect(() => {
-    const sections = SECTION_IDS.map((id) =>
-      document.getElementById(id),
-    ).filter(Boolean) as HTMLElement[]
-
-    if (!sections.length) return
-
     const updateActiveSection = () => {
-      const viewportCenter = window.innerHeight / 2
-      let closestId = sections[0].id
-      let closestDistance = Number.POSITIVE_INFINITY
-
-      sections.forEach((section) => {
-        const rect = section.getBoundingClientRect()
-        const sectionCenter = rect.top + rect.height / 2
-        const distance = Math.abs(sectionCenter - viewportCenter)
-
-        if (distance < closestDistance) {
-          closestDistance = distance
-          closestId = section.id
-        }
-      })
-
+      const closestId = getClosestSectionId()
+      if (!closestId) return
       setActiveSection((prev) => (prev === closestId ? prev : closestId))
     }
 

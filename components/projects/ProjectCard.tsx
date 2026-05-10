@@ -23,11 +23,11 @@ export default function ProjectCard({
 }: ProjectCardProps) {
   return (
     <article
-      className="flex flex-col gap-2 p-6 bg-surface/20 rounded-xl
+      className="flex flex-col gap-2 pb-6 bg-surface/20 rounded-xl
     md:flex-1"
     >
       {/* Image */}
-      <div className="relative min-h-80 w-full">
+      <div className="relative min-h-60 rounded-xl w-full">
         <Image
           src={image}
           alt={title}
@@ -36,56 +36,60 @@ export default function ProjectCard({
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>
-      <h3 className="text-lg font-semibold">{title}</h3>
 
-      {/* description */}
-      <p>{description}</p>
+      <div className="px-4 flex flex-col gap-2">
+        {/* Project Name */}
+        <h3 className="text-lg font-semibold">{title}</h3>
 
-      {/* Links */}
-      <div className="flex items-center gap-4">
-        <a
-          href={github_link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="inline-flex items-center gap-1 rounded-xl border border-surface bg-foreground px-2 py-2 text-sm"
-          aria-label="Project's GitHub repo"
-        >
-          <Image
-            src={githubIcon}
-            width={icon_size}
-            height={icon_size}
-            className="h-4 w-4 object-contain invert"
-            alt="GitHub icon"
-          />
-          <span className="text-background">GitHub</span>
-        </a>
-        {project_link && (
+        {/* description */}
+        <p>{description}</p>
+
+        {/* Links */}
+        <div className="flex items-center gap-4">
           <a
-            href={project_link}
+            href={github_link}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1 rounded-xl border border-surface bg-surface px-2 py-2 text-sm"
-            aria-label="Project demo link"
+            className="inline-flex items-center gap-1 rounded-xl border border-surface bg-foreground px-2 py-2 text-sm"
+            aria-label="Project's GitHub repo"
           >
             <Image
-              src={linkIcon}
+              src={githubIcon}
               width={icon_size}
               height={icon_size}
-              className="h-4 w-4 object-contain"
-              alt="Project Link icon"
+              className="h-4 w-4 object-contain invert"
+              alt="GitHub icon"
             />
-            <p>Demo</p>
+            <span className="text-background">GitHub</span>
           </a>
-        )}
-      </div>
+          {project_link && (
+            <a
+              href={project_link}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 rounded-xl border border-surface bg-surface px-2 py-2 text-sm"
+              aria-label="Project demo link"
+            >
+              <Image
+                src={linkIcon}
+                width={icon_size}
+                height={icon_size}
+                className="h-4 w-4 object-contain"
+                alt="Project Link icon"
+              />
+              <p>Demo</p>
+            </a>
+          )}
+        </div>
 
-      {/* stacks */}
-      <div className="flex flex-wrap gap-2">
-        {stacks.map((stack) => (
-          <p key={stack} className="stack-styling">
-            {stack}
-          </p>
-        ))}
+        {/* stacks */}
+        <div className="flex flex-wrap gap-2">
+          {stacks.map((stack) => (
+            <p key={stack} className="stack-styling">
+              {stack}
+            </p>
+          ))}
+        </div>
       </div>
     </article>
   )

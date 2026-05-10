@@ -4,6 +4,7 @@ import "./globals.css"
 import Links from "@/components/Links"
 import HeaderMobile from "@/components/HeaderMobile"
 import HeaderDesktop from "@/components/HeaderDesktop"
+import ScrollHashSync from "@/components/ScrollHashSync"
 
 const funnelDisplay = Funnel_Display({
   variable: "--font-funnel-display",
@@ -26,6 +27,7 @@ export default function RootLayout({
       <body
         className={`${funnelDisplay.variable} ${funnelDisplay.className} antialiased px-4`}
       >
+        <ScrollHashSync />
         <HeaderMobile />
         <HeaderDesktop />
         <main className="w-full  pt-[var(--headerMobile-offset)] lg:pt-0 lg:pl-[var(--headerDesktop-offset)] lg:max-w-[70rem] lg:mx-auto">
