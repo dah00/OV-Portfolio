@@ -3,6 +3,8 @@
 import Link from "next/link"
 import { useEffect, useState } from "react"
 import { getClosestSectionId } from "@/lib/sectionScroll"
+import Image from "next/image"
+import logo from "@/assets/images/Obe Velo Logo.png"
 
 function HeaderDesktop() {
   const [activeSection, setActiveSection] = useState<string>("about")
@@ -31,7 +33,16 @@ function HeaderDesktop() {
       <div className="flex flex-col fixed rounded-xl  h-screen lg:w-[15rem] left-6 pt-2">
         {/* Logo */}
         <div className="text-3xl md:text-4xl lg:text-4xl">
-          <Link href="#about">OV.</Link>
+          <Link href="#about">
+            <Image
+              src={logo}
+              alt="GitHub icon"
+              width={60}
+              height={60}
+              className="rounded-lg rounded-lg object-contain"
+              aria-hidden
+            />
+          </Link>
         </div>
 
         {/* nav menu */}
