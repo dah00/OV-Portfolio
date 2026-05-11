@@ -12,7 +12,7 @@ const funnelDisplay = Funnel_Display({
 })
 
 export const metadata: Metadata = {
-  title: "OV Portfolio",
+  title: "Obeda Velonjatovo Portfolio",
   description:
     "Obeda Velonjatovo's portfolio website to show and take to his Software Engineering journey",
 }
