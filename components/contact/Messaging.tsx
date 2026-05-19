@@ -2,14 +2,21 @@
 
 import { useActionState, useEffect, useRef } from "react"
 import { useFormStatus } from "react-dom"
-import { initialContactState, sendMessage } from "./actions"
+import { sendMessage, type ContactActionState } from "./actions"
+
+const initialContactState: ContactActionState = {
+  success: false,
+  message: "",
+}
 
 const inputFieldStyling =
   "border-1 border-surface bg-surface/40 w-full px-4 py-2 rounded-xl focus:outline-none focus:ring-1 focus:ring-accent/60 focus:border-accent"
 
+/** Must stay inside `<form>` so `useFormStatus` sees this form’s submit state. */
 function SubmitButton() {
   const { pending } = useFormStatus()
 
+  /* Submits via parent <form action={formAction}> — Resend runs in actions.ts (no onClick). */
   return (
     <button type="submit" className="cursor-pointer text-sm" disabled={pending}>
       {pending ? "Sending..." : "Send Message"}
@@ -73,6 +80,7 @@ export default function Messaging() {
         rows={8}
         required
         className={inputFieldStyling}
+        aria-label="Your message"
       />
 
       <div className="self-center rounded-xl bg-accent px-4 py-2">

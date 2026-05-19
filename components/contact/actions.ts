@@ -7,10 +7,7 @@ export type ContactActionState = {
   message: string
 }
 
-export const initialContactState: ContactActionState = {
-  success: false,
-  message: "",
-}
+const emptyState: ContactActionState = { success: false, message: "" }
 
 export async function sendMessage(
   _prevState: ContactActionState,
@@ -21,7 +18,7 @@ export async function sendMessage(
   const message = String(formData.get("message") ?? "").trim()
   const botField = String(formData.get("company") ?? "").trim()
 
-  if (botField) return initialContactState
+  if (botField) return emptyState
   if (!name || !email || !message) {
     return {
       success: false,
@@ -29,12 +26,24 @@ export async function sendMessage(
     }
   }
 
-  const resend = new Resend(process.env.RESEND_API_KEY)
+  const apiKey = process.env.RESEND_API_KEY
+  const from = process.env.CONTACT_FROM_EMAIL
+  const to = process.env.CONTACT_TO_EMAIL
+
+  if (!apiKey || !from || !to) {
+    return {
+      success: false,
+      message:
+        "Email is not configured on the server. Add RESEND_API_KEY, CONTACT_FROM_EMAIL, and CONTACT_TO_EMAIL (e.g. in Vercel env).",
+    }
+  }
+
+  const resend = new Resend(apiKey)
 
   try {
     await resend.emails.send({
-      from: process.env.CONTACT_FROM_EMAIL!,
-      to: process.env.CONTACT_TO_EMAIL!,
+      from,
+      to,
       subject: `Portfolio message from ${name}`,
       replyTo: email,
       text: `Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`,
