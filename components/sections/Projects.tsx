@@ -2,7 +2,6 @@ import ProjectCard, { ProjectCardProps } from "../projects/ProjectCard"
 import SectionTitle from "../shared/SectionTitle"
 import portfolioImage from "@/assets/images/OV_Portfolio_picture.png"
 import onePercentImage from "@/assets/images/OnePercent_image.png"
-// TODO: replace with the real FluentRead landing-page screenshot in assets/images
 import fluentReadImage from "@/assets/images/FluentRead_image.png"
 
 const projects: ProjectCardProps[] = [
