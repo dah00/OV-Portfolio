@@ -9,6 +9,9 @@ export type ContactActionState = {
 
 const emptyState: ContactActionState = { success: false, message: "" }
 
+/** Pragmatic email shape check (server-side companion to the client `type="email"`). */
+const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+
 export async function sendMessage(
   _prevState: ContactActionState,
   formData: FormData
@@ -23,6 +26,13 @@ export async function sendMessage(
     return {
       success: false,
       message: "Please fill in your name, email, and message.",
+    }
+  }
+
+  if (!EMAIL_PATTERN.test(email)) {
+    return {
+      success: false,
+      message: "Please enter a valid email address.",
     }
   }
 

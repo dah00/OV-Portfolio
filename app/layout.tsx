@@ -5,54 +5,41 @@ import Links from "@/components/Links"
 import HeaderMobile from "@/components/HeaderMobile"
 import HeaderDesktop from "@/components/HeaderDesktop"
 import ScrollHashSync from "@/components/ScrollHashSync"
+import { person, siteUrl } from "@/lib/site"
 
 const funnelDisplay = Funnel_Display({
   variable: "--font-funnel-display",
   subsets: ["latin"],
 })
 
-/** Canonical site URL for metadata (OG/Twitter). Set in Vercel: NEXT_PUBLIC_SITE_URL=https://yourdomain.com */
-const siteUrl =
-  process.env.NEXT_PUBLIC_SITE_URL ??
-  (process.env.VERCEL_URL
-    ? `https://${process.env.VERCEL_URL}`
-    : "http://localhost:3000")
+const title = "Obeda Velonjatovo — Software Engineer"
+const description =
+  "Portfolio of Obeda Velonjatovo, a software engineer building thoughtful products for mobile and web. Explore my experience, projects, and how to get in touch."
+const ogImage = {
+  url: "/og.png",
+  width: 1200,
+  height: 630,
+  alt: "Obeda Velonjatovo — portfolio",
+}
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Obeda Velonjatovo Portfolio",
-  description:
-    "Obeda Velonjatovo's portfolio website to show and take to his Software Engineering journey",
+  title,
+  description,
   openGraph: {
-    title: "Obeda Velonjatovo Portfolio",
-    description:
-      "Obeda Velonjatovo's portfolio website to show and take to his Software Engineering journey",
+    title,
+    description,
     url: "/",
     siteName: "Obeda Velonjatovo",
     locale: "en_US",
     type: "website",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Obeda Velonjatovo — portfolio",
-      },
-    ],
+    images: [ogImage],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Obeda Velonjatovo Portfolio",
-    description:
-      "Obeda Velonjatovo's portfolio website to show and take to his Software Engineering journey",
-    images: [
-      {
-        url: "/og.png",
-        width: 1200,
-        height: 630,
-        alt: "Obeda Velonjatovo — portfolio",
-      },
-    ],
+    title,
+    description,
+    images: [ogImage],
   },
 }
 
@@ -61,11 +48,24 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode
 }>) {
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: person.name,
+    jobTitle: person.jobTitle,
+    url: siteUrl,
+    sameAs: person.sameAs,
+  }
+
   return (
     <html lang="en">
       <body
         className={`${funnelDisplay.variable} ${funnelDisplay.className} antialiased px-4`}
       >
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        />
         <ScrollHashSync />
         <HeaderMobile />
         <HeaderDesktop />
