@@ -2,29 +2,39 @@
 
 import Link from "next/link"
 import styles from "./Header.module.css"
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import Image from "next/image"
+import { NAV_ITEMS } from "@/lib/navItems"
 import logo from "@/assets/images/Obe Velo Logo.png"
 
 function HeaderMobile() {
   const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false)
 
-  const handleOpenMenu = () => {
-    setIsMenuOpen(!isMenuOpen)
-  }
+  const toggleMenu = () => setIsMenuOpen((open) => !open)
+  const closeMenu = () => setIsMenuOpen(false)
+
+  // Close the mobile panel on Escape for keyboard users.
+  useEffect(() => {
+    if (!isMenuOpen) return
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === "Escape") setIsMenuOpen(false)
+    }
+    window.addEventListener("keydown", handleKeyDown)
+    return () => window.removeEventListener("keydown", handleKeyDown)
+  }, [isMenuOpen])
 
   return (
     // sm: mobile (toggle) + tablet (inline links). lg+: use fixed left nav below Logo.
     <header className="lg:hidden fixed inset-x-0 top-0 z-50 flex w-full flex-row items-center justify-between bg-background px-4 py-2 shadow-elevated">
       {/* Logo */}
       <div className="text-3xl md:text-4xl lg:text-4xl">
-        <Link href="#about">
+        <Link href="#about" aria-label="Obeda Velonjatovo — home">
           <Image
             src={logo}
-            alt="GitHub icon"
+            alt=""
             width={40}
             height={40}
-            className="rounded-lg rounded-lg object-contain"
+            className="rounded-lg object-contain"
             aria-hidden
           />
         </Link>
@@ -33,7 +43,7 @@ function HeaderMobile() {
       <div className="relative">
         {/* Hamburger only on sm and hide on md-lg+. */}
         <button
-          onClick={handleOpenMenu}
+          onClick={toggleMenu}
           type="button"
           className={`flex flex-col items-center gap-1.5 border-0 bg-transparent p-0 md:hidden ${!isMenuOpen ? styles.hamburger : `${styles.hamburger} ${styles.active}`}`}
           aria-expanded={isMenuOpen}
@@ -54,18 +64,17 @@ function HeaderMobile() {
               : "max-md:hidden md:flex md:flex-row md:items-center md:justify-around md:gap-6"
           }
         >
-          <li>
-            <Link href="#about">About Me</Link>
-          </li>
-          <li>
-            <Link href="#experience">Experience</Link>
-          </li>
-          <li>
-            <Link href="#projects">Projects</Link>
-          </li>
-          <li>
-            <Link href="#contact">Contact Me</Link>
-          </li>
+          {NAV_ITEMS.map(({ id, label }) => (
+            <li key={id}>
+              <Link
+                href={`#${id}`}
+                onClick={closeMenu}
+                className="transition-colors hover:text-accent"
+              >
+                {label}
+              </Link>
+            </li>
+          ))}
         </ul>
       </div>
     </header>

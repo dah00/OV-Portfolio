@@ -3,18 +3,11 @@
 :root {
   --background: #ffffff;
   --foreground: #0c1013;
-  --muted: #b2b2b2;
+  --muted: #6b7280; /* Readable secondary text (WCAG AA on --background) */
   --surface: #dedede;
   --accent: #64b5f6;
-  /* --body-padding-x: clamp() */
-  --page-padding-x: clamp(
-    1rem,
-    4vw,
-    2.5rem
-  ); /* Global horizontal inset for page content */
   --headerMobile-offset: 3.5rem; /* Space for mobile fixed header + hash-link scroll offset  */
   --headerDesktop-offset: 15rem; /* Space for desktop fixed header + hash-link scroll offset  */
-  --mainDesktop-horizontal-offset: 20rem;
   --shadow-elevated-value:
     0 1px 2px rgb(0 0 0 / 0.06), 0 4px 12px rgb(0 0 0 / 0.14);
 }
@@ -40,6 +33,9 @@
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
+    --muted: #9aa4b2; /* Lighter muted for contrast on dark background */
+    --surface: #273244; /* Elevated slate for panels/badges/borders on dark */
+    /* --accent (#64b5f6) already reads well on the dark background */
   }
 }
 

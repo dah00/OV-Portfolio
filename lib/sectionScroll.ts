@@ -1,6 +1,4 @@
-export const SECTION_IDS = ["about", "experience", "projects", "contact"] as const
-
-export type SectionId = (typeof SECTION_IDS)[number]
+import { SECTION_IDS } from "./navItems"
 
 /** Which section’s midpoint is closest to the vertical center of the viewport (client-only). */
 export function getClosestSectionId(): string | null {
