@@ -1,8 +1,8 @@
 import ProjectCard, { ProjectCardProps } from "../projects/ProjectCard"
 import SectionTitle from "../shared/SectionTitle"
-import mobileAppImage from "@/assets/images/mobile_app_screenshot.png"
-import portfolioImage from "@/assets/images/OV_Portfolio_picture.png"
+import portfolioImage from "@/assets/images/OV_Portfolio_image.png"
 import onePercentImage from "@/assets/images/OnePercent_image.png"
+import fluentReadImage from "@/assets/images/FluentRead_image.png"
 
 const projects: ProjectCardProps[] = [
   {
@@ -23,20 +23,13 @@ const projects: ProjectCardProps[] = [
     github_link: "https://github.com/dah00/OnePercent",
   },
   {
-    title: "Thrive",
+    title: "FluentRead",
     description:
-      "A personal growth app that tracks workouts, journaling, reading notes, and side projects in one place with a simple, motivating experience.",
-    image: mobileAppImage,
-    stacks: ["React Native", "Typescript", "Nativewind"],
-    github_link: "https://github.com/dah00/Thrive",
-  },
-  {
-    title: "Office Supply Depot",
-    description:
-      "Our senior-year final project, where I led the frontend development of a full-stack web app.",
-    image: mobileAppImage,
-    stacks: ["JavaScript", "HTML", "CSS", "Python", "SQL"],
-    github_link: "https://github.com/michmoosch/CS-160-Term-Project",
+      "A web app that helps non-native speakers improve their English pronunciation by reading passages aloud. Paste text or snap a photo of a page, read it out loud, and get AI-powered, word-by-word feedback with scores and correct audio examples.",
+    image: fluentReadImage,
+    stacks: ["Next.js", "JavaScript", "Tailwind", "Claude API", "Web Speech API"],
+    github_link: "https://github.com/dah00/FluentRead-App",
+    project_link: "https://fluentread.app/",
   },
 ]
 
@@ -44,7 +37,7 @@ function Projects() {
   return (
     <section
       id="projects"
-      className="flex flex-col items-start gap-8 py-8  scroll-mt-[var(--headerMobile-offset)]"
+      className="flex flex-col items-start gap-8 py-8 scroll-mt-[var(--headerMobile-offset)] lg:scroll-mt-0"
     >
       <SectionTitle title="Projects" />
       <div className="grid w-full grid-cols-1 gap-4 md:grid-cols-2">

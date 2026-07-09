@@ -26,18 +26,11 @@ const experiences: JobCardProps[] = [
     role: "Software Engineer",
     companyName: "One Community",
     description: [
-      "Developed and maintained two React Native apps Tenafli and Tenafli Pro that connect homeowners/renters with home service providers, initially focused on delivering new frontend features and UI enhancements.",
-      "Implemented major product capabilities such as profile management, SSO authentication, gift card integration, image uploads, deep linking, push notifications, and job completion tracking — improving user engagement and operational workflows.",
-      "Expanded scope to backend development - built and maintained APIs using Python (FastAPI) and deployed services on AWS (ECS, S3, DynamoDB, EC2, Cognito) to ensure secure, scalable data operations.",
-      "Led end-to-end development of HenrieAI and AgefullyAI: created React Native apps and Next.js websites, developed a shared TypeScript component library and design system, and integrated native modules to ensure consistent cross-platform UX.",
+      "Contributed frontend development to Highest Good of All (HGN), a large open-source web application built with a distributed volunteer team.",
+      "Diagnosed and fixed critical bugs across a React / Node.js open-source codebase, improving stability of existing features.",
+      "Raised code quality by adding Jest test coverage and enforcing ESLint standards across contributions.",
     ],
-    stacks: [
-      "React Native",
-      "Typescript",
-      "Tailwind",
-      "AWS (ECS, EC2, S3, DynamoDB, Cognito)",
-      "Python",
-    ],
+    stacks: ["React", "Node.js", "JavaScript", "Jest"],
     link: "https://onecommunityglobal.org/",
   },
 ]
