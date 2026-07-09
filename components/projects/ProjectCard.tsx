@@ -22,13 +22,14 @@ export default function ProjectCard({
   github_link,
 }: ProjectCardProps) {
   return (
-    <article className="flex flex-col gap-2 rounded-xl bg-surface/20 pb-6 md:flex-1">
-      {/* Image */}
-      <div className="relative min-h-60 w-full rounded-xl">
+    <article className="flex flex-col gap-2 overflow-hidden rounded-xl border border-surface bg-surface/20 pb-6 md:flex-1">
+      {/* Fixed aspect ratio + object-cover keeps every card uniform regardless
+          of the source image's dimensions (no letterboxing / uneven margins). */}
+      <div className="relative aspect-[16/10] w-full border-b border-surface bg-surface">
         <Image
           src={image}
           alt={title}
-          className="rounded-lg object-contain"
+          className="object-cover object-top"
           fill
           sizes="(max-width: 768px) 100vw, 50vw"
         />
