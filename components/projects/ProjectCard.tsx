@@ -25,7 +25,7 @@ export default function ProjectCard({
     <article className="flex flex-col gap-2 overflow-hidden rounded-xl border border-surface bg-surface/20 pb-6 md:flex-1">
       {/* Fixed aspect ratio + object-cover keeps every card uniform regardless
           of the source image's dimensions (no letterboxing / uneven margins). */}
-      <div className="relative aspect-[16/10] w-full border-b border-surface bg-surface">
+      <div className="relative aspect-[16/10] w-full border-surface bg-surface">
         <Image
           src={image}
           alt={title}
