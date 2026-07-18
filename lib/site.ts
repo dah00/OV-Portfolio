@@ -5,11 +5,18 @@
  * Set NEXT_PUBLIC_SITE_URL in the deploy env (e.g. Vercel) to the production
  * origin so absolute OG/canonical/sitemap URLs resolve correctly.
  */
-export const siteUrl =
+const rawSiteUrl =
   process.env.NEXT_PUBLIC_SITE_URL ??
   (process.env.VERCEL_URL
     ? `https://${process.env.VERCEL_URL}`
     : "http://localhost:3000")
+
+/**
+ * Normalize to a clean origin (protocol + host, no path/hash/trailing slash).
+ * Guards against an env value like `https://www.obeda.dev/#about` leaking a
+ * stray fragment into sitemap/robots/canonical URLs.
+ */
+export const siteUrl = new URL(rawSiteUrl).origin
 
 export const person = {
   name: "Obeda Velonjatovo",
@@ -19,10 +26,10 @@ export const person = {
   location: "San Francisco Bay Area",
   knowsAbout: [
     "Software Engineering",
+    "Full-Stack Development",
     "React Native",
     "TypeScript",
     "Next.js",
-    "Full-Stack Development",
   ],
   sameAs: [
     "https://github.com/dah00",
