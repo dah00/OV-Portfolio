@@ -6,6 +6,7 @@ import HeaderMobile from "@/components/HeaderMobile"
 import HeaderDesktop from "@/components/HeaderDesktop"
 import ScrollHashSync from "@/components/ScrollHashSync"
 import { person, siteUrl } from "@/lib/site"
+import { Analytics } from "@vercel/analytics/next"
 
 const funnelDisplay = Funnel_Display({
   variable: "--font-funnel-display",
@@ -89,6 +90,7 @@ export default function RootLayout({
           {children}
         </main>
         <Links />
+        <Analytics />
       </body>
     </html>
   )
