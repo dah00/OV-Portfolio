@@ -26,6 +26,18 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title,
   description,
+  keywords: [
+    "Obeda Velonjatovo",
+    "Obeda",
+    "Velonjatovo",
+    "Obeda Velonjatovo software engineer",
+    "Obeda Velonjatovo portfolio",
+    "software engineer",
+    "portfolio",
+  ],
+  authors: [{ name: person.name, url: siteUrl }],
+  creator: person.name,
+  alternates: { canonical: "/" },
   openGraph: {
     title,
     description,
@@ -53,7 +65,11 @@ export default function RootLayout({
     "@type": "Person",
     name: person.name,
     jobTitle: person.jobTitle,
+    description: person.description,
     url: siteUrl,
+    image: `${siteUrl}/og.png`,
+    homeLocation: person.location,
+    knowsAbout: person.knowsAbout,
     sameAs: person.sameAs,
   }
 

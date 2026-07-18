@@ -14,6 +14,16 @@ export const siteUrl =
 export const person = {
   name: "Obeda Velonjatovo",
   jobTitle: "Software Engineer",
+  description:
+    "Software engineer building thoughtful products for mobile and web.",
+  location: "San Francisco Bay Area",
+  knowsAbout: [
+    "Software Engineering",
+    "React Native",
+    "TypeScript",
+    "Next.js",
+    "Full-Stack Development",
+  ],
   sameAs: [
     "https://github.com/dah00",
     "https://www.linkedin.com/in/obeda-velonjatovo/",

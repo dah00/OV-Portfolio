@@ -8,13 +8,13 @@ export default function AboutMe() {
       min-h-[35rem] lg:min-h-[44rem] "
     >
       <div className="w-full max-w-3xl">
-        <p className="text-2xl leading-tight md:text-4xl lg:text-5xl">
+        <h1 className="text-2xl leading-tight md:text-4xl lg:text-5xl">
           Hi,
           <span className="mt-3 block pl-4">
-            I&apos;m <span className="text-accent">Obe</span>da, a software
-            engineer building thoughtful products for mobile and web.
+            I&apos;m <span className="text-accent">Obe</span>da Velonjatovo, a
+            software engineer building thoughtful products for mobile and web.
           </span>
-        </p>
+        </h1>
 
         <p className="mt-6 pl-4 text-lg leading-relaxed text-foreground/90 md:text-xl">
           Based in the Bay Area, I focus on clean UX and practical features for
