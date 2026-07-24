@@ -7,6 +7,10 @@ import HeaderDesktop from "@/components/HeaderDesktop"
 import ScrollHashSync from "@/components/ScrollHashSync"
 import { person, siteUrl } from "@/lib/site"
 import { Analytics } from "@vercel/analytics/next"
+import { GoogleAnalytics } from "@next/third-parties/google"
+
+/** GA4 Measurement ID (G-XXXXXXX). Set NEXT_PUBLIC_GA_ID in .env.local / Vercel to enable. */
+const gaId = process.env.NEXT_PUBLIC_GA_ID
 
 const funnelDisplay = Funnel_Display({
   variable: "--font-funnel-display",
@@ -92,6 +96,7 @@ export default function RootLayout({
         <Links />
         <Analytics />
       </body>
+      {gaId ? <GoogleAnalytics gaId={gaId} /> : null}
     </html>
   )
 }
